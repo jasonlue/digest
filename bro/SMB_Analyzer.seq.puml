@@ -1,0 +1,55 @@
+@startuml
+NetSessions -> NetSessions++: NextPacket()
+    NetSessions -> NetSessions++: DoNextPacket()
+        NetSessions -> NetSessions++: NewConn()
+            NetSessions -> Connection++: new
+            return
+            NetSessions -> analyzer_mgr++: BuildInitialAnalyzerTree(conn)
+                analyzer_mgr -> TCP_Analyzer++ : new()
+                    TCP_Analyzer -> TCP_Endpoint++ : new()
+                    return
+                return
+                analyzer_mgr -> PIA_TCP++ : new()
+                return
+                analyzer_mgr -> analyzer_mgr++ : ApplyScheduledAnalyzers()
+                    analyzer_mgr -> analyzer_mgr++: GetScheduled()
+                    return
+                    
+                return
+            return
+        return
+        NetSessions -> Connection++ : NextPacket()
+            Connection -> TCP_Analyzer++ : NextPacket()
+                TCP_Analyzer -> TCP_Analyzer++: DeliverPacket()
+                    TCP_Analyzer -> TCP_Analyzer++: DeliverData()
+                        TCP_Analyzer -> TCP_Endpoint++ : DataSent()
+                            TCP_Endpoint -> TCP_Reassembler++ : DataSent()
+                                TCP_Reassembler -> TCP_Reassembler++ : NewBlock()
+                                    TCP_Reassembler -> DataBlock++ : new 
+                                    return
+                                TCP_Reassembler -> TCP_Reassembler++ : BlockInserted()
+                                    TCP_Reassembler -> TCP_Reassembler++ : DeliverBlock()
+                                        TCP_Reassembler -> TCP_Reassembler++ : Deliver()
+                                            TCP_Reassembler -> TCP_Analyzer++ : ForwardStream()
+                                            == Invoke SMB_Analyzer Child Analyzer ==
+                                                TCP_Analyzer -> SMB_Analyzer++ : NextStream()
+                                                    SMB_Analyzer -> SMB_Analyzer++: DeliverStream()
+                                                        SMB_Analyzer -> SMB_Conn++: NewData()
+                                                            SMB_Conn -> SMB_Flow++: NewData()
+                                                                SMB_Flow -> SMB_TCP++: new()
+                                                                return
+                                                                SMB_Flow -> FlowBuffer++: NewData()
+                                                                return
+                                                                SMB_Flow -> ContextSMB++: new()
+                                                                return
+                                                                SMB_Flow -> SMB_TCP++ : ParseBuffer()
+                                                                    SMB_TCP -> FlowBuffer++: NewFrame()
+                                                                        FlowBuffer -> FlowBuffer: NewMessage()
+                                                                        return
+                                                                    return
+                                                                return
+                                                            return
+                                                        return
+                                                    return
+
+@enduml

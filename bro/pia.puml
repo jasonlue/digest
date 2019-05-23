@@ -1,0 +1,47 @@
+@startuml Protocol Implementating Analyzer
+class RuleMatcherState
+{   
+    is_orig
+    InitEndpointMatcher()
+    Match()
+    FinishEndpointMatcher()
+}
+RuleMatcherState *-- "orig_match_state" RuleEndpointState
+RuleMatcherState *-- "resp_match_state" RuleEndpointState
+RuleEndpointState --> "oposite" RuleEndpointState
+RuleEndpointState --> Analyzer
+RuleEndpointState --> PIA
+RuleEndpointState *-- "*" Matcher
+Matcher --> RE_Match_State
+Matcher --> Rule::PatternType
+
+class RuleEndpointState
+RuleMatcherState <|-- PIA
+
+
+PIA --> Analyzer
+PIA -- Connection
+PIA *-- DataBlock
+class PIA
+{
+    {abstract}DoMatch()
+}
+class Analyzer
+{
+
+}
+class Connection
+{
+
+}
+class DataBlock
+{
+
+}
+PIA <|-- PIA_TCP
+class PIA_TCP
+{
+    DoMatch()
+}
+
+@enduml

@@ -1,0 +1,153 @@
+@startuml Analyzer
+hide empty fields
+hide empty methods
+
+Analyzer *--{ "orig_supporters" SupportAnalyzer
+Analyzer *--{ "resp_supporters" SupportAnalyzer
+Analyzer *--{ "children" Analyzer
+Analyzer --> "parent" Analyzer
+Analyzer --> "conn" Connection
+Analyzer *-- "signature" Rule
+class Analyzer
+{
+    tag 
+    id
+    -- 
+    Init()
+    Done()
+    ..
+    'Next is external interface to enter analyzer.
+    'Support analyzer routing mechanism
+    NextPacket()
+    NextStream()
+    NextUndelivered()
+    NextEndOfData()
+    ..
+    'Analyzer Tree Routing mechanism.
+    ForwardPacket()
+    ForwardStream()
+    ForwaredUndelivered()
+    ForwardUndelivered()
+    ..
+    'Actual Parsing 
+    'At the end of parsing, call Next... for each child analyzer to allow child analyzer to continue parsing of packet.
+    {abstract}DeliverPacket()
+    {abstract}DeliverStream()
+    {abstract}Undelivered()
+    {abstract}EndOfData()
+    ..
+    'at points where the analyzer believes it's pasing the wrong protocol.
+    {abstract}ProtocolViolation()
+    'at points where the analyzer can be pretty sure to parse the right protocol.
+    {abstract}ProtocolConfirmation()
+    ..
+    AddChildAnalyzer(analyzer)
+    ..
+    static Analyzer* InstantiateAnalyzer(Connection* conn)
+    static bool Available()
+}
+Analyzer <|-- ConnSize_Analyzer
+Analyzer <|-- TransportLayerAnalyzer
+TransportLayerAnalyzer <|-- ICMP_Analyzer
+TransportLayerAnalyzer <|-- UDP_Analyzer
+TransportLayerAnalyzer <|-- TCP_Analyzer
+
+TCP_Analyzer *--{ "packet_children" Analyzer
+TCP_Analyzer --> "orig" TCP_Endpoint
+TCP_Analyzer --> "resp" TCP_Endpoint
+TCP_Endpoint --> "peer" TCP_Endpoint
+TCP_Endpoint --> Connection
+TCP_Endpoint --> "tcp_analyzer" TCP_Analyzer
+TCP_Endpoint --> "contents_processor" TCP_Reassembler
+TCP_Reassembler --> "dst_analyzer" Analyzer
+TCP_Reassembler --> "tcp_analyzer" TCP_Analyzer
+Reassembler <|-- TCP_Reassembler
+Reassembler *--{ "blocks" DataBlock
+
+class TCP_Analyzer #Pink
+{
+    DeliverData()
+}
+RuleMatcherState <|-- PIA
+RuleMatcherState *-- "orig_match_state" RuleEndpointState
+RuleMatcherState *-- "resp_match_state" RuleEndpointState
+RuleEndpointState --> "analyzer" Analyzer
+RuleEndpointState --> "pia" PIA
+RuleEndpointState --> "opposite" RuleEndpointState
+class RuleEndpointState
+{
+    bool is_orig
+}
+class PIA
+{
+    DoMatch()
+}
+class PIA_TCP #Pink
+{
+
+}
+TransportLayerAnalyzer --> PIA
+class TransportLayerAnalyzer
+{
+    SetContentsFile()
+    GetContentFile()
+    SetPIA()
+    GetPIA()
+}
+
+Connection --> "sessions" NetSessions
+NetSessions *--{ "tcp_conns" Connection
+NetSessions *--{ "udp_conns" Connections
+NetSessions *--{ "icmp_conns" Connections
+Connection --> "root_analyzer" TransportLayerAnalyzer
+Connection --> "primary_PIA" PIA
+
+class Connection
+{  
+    'the major record scrip adds fields to. and huge container to hold all interesting info about conn.
+    RecordVal* conn_val
+    NextPacket()
+
+}
+Analyzer <|-- TCP_ApplicationAnalyzer
+class TCP_ApplicationAnalyzer
+{
+    EndpointEOF(bool is_orig)
+    ConnectionFinished(int half_finished)
+    ConnectionReset()
+    PacketWithRST()
+}
+
+PIA <|-- PIA_TCP
+TCP_ApplicationAnalyzer <|-- PIA_TCP 
+TCP_ApplicationAnalyzer <|-- SMB_Analyzer 
+TCP_ApplicationAnalyzer <|-- FTP_Analyzer 
+TCP_ApplicationAnalyzer <|-- File_Analyzer 
+TCP_ApplicationAnalyzer <|-- HTTP_Analyzer 
+'SupportAnalyzer encapsulate common but protocol-independent tasks.
+'Such as line-splitting for line-based ASCII protocols.
+'Directly associated with a particular parent analyzer.
+'Destroyed when parent gets destroyed.
+'Don't have children
+'Handle only one direction of the connection's data.
+'Need two to handle two directions.
+'All suuuport analyzers of a particular parent forms two lists, one list per direction.
+'Every packet/stream-chunk to parent first passes through this list.
+'The output of the last support analyzer is t'Don't have childrenvia parent's DeliverPacket or DeliverStream.
+'The most important support analyzer is Conte'Don't have childrenr which split lines.
+SupportAnalyzer --> "sibling" SupportAnalyzer
+class SupportAnalyzer
+{
+    bool orig
+
+    bool IsOrig()
+    Sibling()
+    ForwardPacket()
+    ForwaredStream()
+    ForwardUndelivered()
+}
+SupportAnalyzer <|-- TCP_SupportAnalyzer 
+TCP_SupportAnalyzer <|-- ContentLine_Analyzer
+TCP_SupportAnalyzer <|-- ZIP_Analyzer
+
+@enduml

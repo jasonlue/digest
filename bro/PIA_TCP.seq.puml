@@ -1,0 +1,55 @@
+@startuml
+NetSessions -> Connection++ : NextPacket()
+    Connection -> TCP_Analyzer++ : NextPacket()
+        TCP_Analyzer -> TCP_Analyzer++: DeliverPacket()
+            TCP_Analyzer -> TCP_Analyzer++: DeliverData()
+                TCP_Analyzer -> TCP_Endpoint++ : DataSent()
+                    TCP_Endpoint -> TCP_Reassembler++ : DataSent()
+                        TCP_Reassembler -> TCP_Reassembler++ : NewBlock()
+                            TCP_Reassembler -> DataBlock++ : new 
+                            return
+                        TCP_Reassembler -> TCP_Reassembler++ : BlockInserted()
+                            TCP_Reassembler -> TCP_Reassembler++ : DeliverBlock()
+                                TCP_Reassembler -> TCP_Reassembler++ : Deliver()
+                                    TCP_Reassembler -> TCP_Analyzer++ : ForwardStream()
+                                        == Invoke PIA_TCP Child Analyzer ==
+                                        TCP_Analyzer -> PIA_TCP++: NextStream()
+                                            PIA_TCP -> PIA_TCP++: DeliverStream()
+                                                PIA_TCP -> PIA++: DoMatch()
+                                                    PIA -> RuleMatcherState++: InitEndpointMatcher()
+                                                        RuleMatcherState -> RuleMatcher++: InitEndpoint()
+                                                            RuleMatcher -> RuleMatcher++: Match()
+                                                                RuleMatcher -> RuleMatcherState++: Match()
+                                                                return
+                                                            return
+                                                        return
+                                                    return
+                                                return
+                                            return
+                                        return
+                                    return
+                                return
+                            return
+                        return
+                    return
+                return
+            return
+            loop foreach packet_children
+                TCP_Analyzer -> Analyzer++ : NextPacket()
+                return
+            end 
+            TCP_Analyzer -> TCP_Analyzer++: CheckPIA_FirstPacket()
+                TCP_Analyzer -> PIA_TCP++: FirstPacket()
+                    PIA_TCP -> PIA_TCP++: DoMatch()
+                    return
+                return
+            return
+            
+                                    
+
+
+
+                                                            
+
+
+@enduml
