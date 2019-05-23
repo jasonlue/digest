@@ -1,0 +1,62 @@
+@startuml Auth Service
+title Auth Service
+class Account{
+    uuid
+    created
+    updated
+    code
+    name
+    legal_name
+}
+
+class PermissionAccount{
+    permission_name
+    account_uuids
+}
+
+class Permission{
+    uuid
+    created
+    updated
+    name
+}
+
+class Role{
+    uuid
+    created
+    updated
+    name
+    account_uuid
+    permission_uuids
+}
+
+User }-- Account : belongs to
+class User{
+    uuid
+    created
+    updated
+    email
+    first_name
+    last_name
+    account_uuid
+    password_reset_date
+    password_reset_expiration_date
+    accepted_terms_of_use_date
+    locked
+}
+
+User }--{ UserAccountRole : can access
+UserAccountRole }--{ Role
+Account }--{ UserAccountRole
+note left of Role: a collection of Permissions
+Role }-{ Permission : has a set of 
+note top of Permission : Permission on resource or subresource
+class UserAccountRole{
+    uuid
+    created
+    updated
+    account_uuid
+    role_uuid
+}
+
+@enduml

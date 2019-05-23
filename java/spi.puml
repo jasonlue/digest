@@ -1,0 +1,24 @@
+@startuml Service Provider Interface
+class Quote{
+    currency
+    date 
+}
+
+interface QuoteManager{
+    List<Quote> getQuotes()
+}
+
+interface ExchangeRateProvider{
+    QuoteManager create()
+}
+
+ExchangeRateProvider <|-- YahooFinanceExchangeRateProvider
+class YahooFinanceExchangeRateProvider{
+    QuoteManager create()
+}
+
+QuoteManager <|-- YahooQuoteManager
+class YahooQuoteManager{
+    List<Quote> getQuotes()
+}
+@enduml
