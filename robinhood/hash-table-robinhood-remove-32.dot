@@ -123,16 +123,16 @@ digraph table{
                 <TD BGCOLOR="beige" PORT="k4">22</TD>
             </TR>           
             <TR>
-                <TD BGCOLOR="beige" PORT="i5">5</TD>
-                <TD BGCOLOR="beige">2</TD>
-                <TD BGCOLOR="beige">3</TD>
-                <TD BGCOLOR="beige" PORT="k5">32</TD>
+                <TD BGCOLOR="yellow" PORT="i5">5</TD>
+                <TD BGCOLOR="yellow">-</TD>
+                <TD BGCOLOR="yellow">-1</TD>
+                <TD BGCOLOR="yellow" PORT="k5">-</TD>
             </TR>           
             <TR>
-                <TD BGCOLOR="yellow" PORT="i6">6</TD>
-                <TD BGCOLOR="yellow">2</TD>
-                <TD BGCOLOR="yellow">4</TD>
-                <TD BGCOLOR="yellow" PORT="k6">42</TD>
+                <TD BGCOLOR="grey" PORT="i6">6</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-1</TD>
+                <TD BGCOLOR="grey" PORT="k6">-</TD>
             </TR>           
             <TR>
                 <TD BGCOLOR="lightblue" PORT="i7">7</TD>
@@ -167,7 +167,6 @@ digraph table{
         </TABLE>
     >]
 
-    "insert(key) appends the key \nto the end of cluster of the same bucket"
-    "expected position(42)" -> table:i6
-    table:k6 -> table2:i6 [label="insert(42)"]
+    "position(32)" -> table:i5
+    table:k5 -> table2:i5 [label="remove(32)"]
 }

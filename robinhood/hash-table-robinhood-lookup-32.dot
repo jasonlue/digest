@@ -84,10 +84,7 @@ digraph table{
             </TR>          
         </TABLE>
     >]
-    "table size = 10"
-    "position(key) = bucket(key) + distance(key)\n position(32) 5 = 2 + 3" -> table:i5
-    empty_bucket [label="empty bucket: indicated by distance of -1" fontcolor=grey]
-     empty_bucket -> table:i6 [color=grey]
-    empty_bucket -> table:i11 [color=grey]
-    "overflow begin" -> table:i10
+    "lookup(32) begin: bucket(32)=2" -> table:i2
+    "position(32)" -> table:i5
+    "lookup(32) end: distance decreases" -> table:i6
 }
