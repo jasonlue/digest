@@ -1,0 +1,7 @@
+digraph table{
+    node[shape=record]
+    entry[xlabel="node" label="<hash>hash|<key>key|<value>value"]
+    entry:key -> entry:hash
+    entry:hash -> position -> hash_table:h
+    hash_table[fillcolor =label="{<f0>|<f1>|<f2>|<f3>...|{<h>hash|<k>key|<v>value}|<f11>|<f12>}"]
+}

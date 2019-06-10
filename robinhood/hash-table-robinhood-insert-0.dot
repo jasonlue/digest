@@ -1,0 +1,178 @@
+digraph table{
+    rankdir=LR
+    node[shape=plaintext]
+    table[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige" PORT="i0">0</TD>
+                <TD BGCOLOR="beige">0</TD>
+                <TD BGCOLOR="beige">0</TD>
+                <TD BGCOLOR="beige">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i1">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k1">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">21</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige" PORT="i3">3</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">1</TD>
+                <TD BGCOLOR="beige" PORT="k3">12</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige">4</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">22</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige">5</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">3</TD>
+                <TD BGCOLOR="beige">32</TD>
+            </TR>           
+            <TR>
+                <TD PORT="i6">-</TD>
+                <TD>-</TD>
+                <TD>-</TD>
+                <TD PORT="k6">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">9</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">37</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">10</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">3</TD>
+                <TD BGCOLOR="lightblue">47</TD>
+            </TR>           
+            <TR>
+                <TD>11</TD>
+                <TD >-</TD>
+                <TD >-</TD>
+                <TD >-</TD>
+            </TR>          
+        </TABLE>
+    >]
+
+    table2[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige">0</TD>
+                <TD BGCOLOR="beige">0</TD>
+                <TD BGCOLOR="beige">0</TD>
+                <TD BGCOLOR="beige">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i1">1</TD>
+                <TD BGCOLOR="yellow">0</TD>
+                <TD BGCOLOR="yellow">0</TD>
+                <TD BGCOLOR="yellow" PORT="k1">0</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">21</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i3">3</TD>
+                <TD BGCOLOR="yellow">1</TD>
+                <TD BGCOLOR="yellow">2</TD>
+                <TD BGCOLOR="yellow" PORT="k3">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige">4</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">22</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="beige">5</TD>
+                <TD BGCOLOR="beige">2</TD>
+                <TD BGCOLOR="beige">3</TD>
+                <TD BGCOLOR="beige">32</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i6">6</TD>
+                <TD BGCOLOR="yellow" >2</TD>
+                <TD BGCOLOR="yellow" >4</TD>
+                <TD BGCOLOR="yellow" PORT="k6">12</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">9</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">37</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue">10</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">3</TD>
+                <TD BGCOLOR="lightblue">47</TD>
+            </TR>           
+            <TR>
+                <TD>11</TD>
+                <TD >-</TD>
+                <TD >-</TD>
+                <TD >-</TD>
+            </TR>          
+        </TABLE>
+    >]
+    "lookup(0) begin" -> table:i0
+    "lookup(0) end" -> table:i1
+    "lookup(0) begin" -> "lookup(0) end"
+    "insert(0) position" -> table:i1
+    { rank=same "lookup(0) begin" "lookup(0) end" "insert(0) position"};
+
+    "insert(0)" -> table2:i1
+    table:k1->table2:i3 [label="relocate(11)"]
+    table:k3->table2:i6 [label="relocate(12)"]
+}
