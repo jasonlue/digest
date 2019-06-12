@@ -1,0 +1,5 @@
+digraph{
+    
+    "packet-launcher"-> "perftest2"  [label="t-rex"]
+    "packet-launcher" -> "test3" [label="tcpreplay"]
+}
