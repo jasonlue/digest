@@ -171,9 +171,4 @@ digraph table{
     table:k1 -> "remove(11)" -> table4:i1
     table4:k2 -> "reposition(21)"-> table4:k1
     table4:k5 -> "reposition(32)" -> table4:k2
-
-    "affected_range_begin(p)" ->table4:i1 [color=blue]
-    "affected_range_end(q)" -> table4:i5 [color=blue]
-    "next iteration position(n)" -> table:i6 [color=red]
-    "next iteration position(n)" -> table4:i6 [color=red]
 }
