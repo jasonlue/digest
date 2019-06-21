@@ -150,9 +150,10 @@ digraph table{
         </TABLE>
     >]
 
-    "remap_stack" -> remap_stack [style=invis]
-    table -> remap_stack [style=invis]
-    remap_stack[label="<
+    "remap stack" -> remap_stack [style=invis]
+    {rank=same "remap stack" remap_stack}
+
+    remap_stack[label=<
         <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
             <TR>
                 <TD BGCOLOR="grey" PORT="h">index</TD>
@@ -160,10 +161,14 @@ digraph table{
             </TR>           
             <TR>
                 <TD BGCOLOR="beige" PORT="i0">0</TD>
+                <TD BGCOLOR="beige" PORT="k0">5</TD>
+            </TR>  
+            <TR>
+                <TD BGCOLOR="beige" PORT="i0">1</TD>
                 <TD BGCOLOR="beige" PORT="k0">10</TD>
             </TR>  
         </TABLE>         
-    >"]
+    >]
 
     "overflow begin" -> table:i20
    "remap_end" -> table:i8
