@@ -1,0 +1,31 @@
+@startuml
+
+class RuleMatcher #YellowGreen{
+    RE_level
+    ReadFiles(files)
+    AddRule(rule)
+    InsertRuleIntoTree(rule, num, dest, level)
+}
+RuleMatcher *-- RuleHdrTest: root
+RuleMatcher *--{ Rule: rules
+RuleMatcher *--{ Rule: rules_by_id
+class RuleHdrTest #LightSalmon{
+
+}
+RuleHdrTest --> RuleHdrTest: sibling
+RuleHdrTest --> RuleHdrTest: child
+RuleHdrTest *--{ Rule: pattern_rules
+RuleHdrTest *--{ Rule: pure_rules
+class Rule{
+    id
+    idx
+    active
+}
+Rule o--{ RuleHdrTest: hdr_tests
+Rule *--{ Pattern: patterns
+Rule *--{ RuleCondition: conditions
+Rule *--{ RuleAction: actions
+Rule *--{ Precond: preconds
+Rule *--{ Rule: dependents
+Rule -- Rule: next
+@enduml

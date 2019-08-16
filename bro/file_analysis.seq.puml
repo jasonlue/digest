@@ -1,0 +1,38 @@
+@startuml
+
+HTTP_Analyzer -> HTTP_Analyzer++: DeliverStream()
+    HTTP_Analyzer -> MIME_Message++: Deliver()
+        MIME_Message -> HTTP_Entity++: Deliver()
+            HTTP_Entity -> HTTP_Entity++: DeliverBody()
+                HTTP_Entity -> HTTP_Entity++:DeliverBodyClear()
+                    HTTP_Entity -> MIME_Entity++:Deliver()
+                        MIME_Entity -> MIME_Entity++:NewDataLine()
+                            MIME_Entity -> MIME_Entity++:DecodeDataLine()
+                                MIME_Entity->MIME_Entity++: FlushData()
+                                    MIME_Entity->HTTP_Entity++: SubmitData()
+                                        HTTP_Entity->Manager++: DataIn()
+                                            Manager->File++: DataIn()
+                                                File->File++:DeliverChunk()
+                                                    File->File++:EndOfFile()
+                                                        File->File++:DeliverStream()
+                                                            File->File++: InferMetadata()
+                                                                File->Manager: DetectMIME()
+                                                                return
+                                                            return
+                                                        return
+                                                    return
+                                                return
+                                            return
+                                        return
+                                    return
+                                return
+                            return
+                        return
+                    return
+                return
+            return
+        return
+    return
+return
+
+@enduml
