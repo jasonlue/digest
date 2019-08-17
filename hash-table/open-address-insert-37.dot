@@ -6,7 +6,7 @@ table[label=<
         <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
             <TR>
                 <TD BGCOLOR="grey">index</TD>
-                <TD BGCOLOR="grey">bucket=key%10</TD>
+                <TD BGCOLOR="grey">bucket</TD>
                 <TD BGCOLOR="grey">distance</TD>
                 <TD BGCOLOR="grey">key</TD>
             </TR>           
@@ -77,7 +77,7 @@ table[label=<
         <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
             <TR>
                 <TD BGCOLOR="grey">index</TD>
-                <TD BGCOLOR="grey">bucket=key%10</TD>
+                <TD BGCOLOR="grey">bucket</TD>
                 <TD BGCOLOR="grey">distance</TD>
                 <TD BGCOLOR="grey">key</TD>
             </TR>           
