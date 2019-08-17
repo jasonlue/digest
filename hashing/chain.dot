@@ -1,0 +1,27 @@
+digraph table{
+    node[shape=record]
+    rankdir=LR
+    hash_table[xlable="table" label="{
+        <i0>0|<h0>}|{<i1>1|<h1>}|{<i2>2|<h2>}|{<i3>3|<h3>}|{<i4>4|<h4>}|{<i5>5|<h5>}|{<i6>6|<h6>}|{<i7>7|<h7>}|{<i8>8|<h8>}|{<i9>9|<h9>}"
+        ]
+
+    hkv0[label="{<key>10|<next>}"]
+
+    hkv1[label="{<key>11|<next>}"]
+    hkv2[label="{<key>21|<next>}"]
+
+    hkv3[label="{<key>12|<next>}"]
+    hkv4[label="{<key>22|<next>}"]
+    hkv5[label="{<key>32|<next>}"]
+
+    hkv6[label="{<key>17|<next>}"]
+    hkv7[label="{<key>27|<next>}"]
+    hkv8[label="{<key>37|<next>}"]
+    hkv9[label="{<key>47|<next>}"]
+
+
+    hash_table:h0 -> hkv0
+    hash_table:h1 -> hkv1 -> hkv2
+    hash_table:h2 -> hkv3 -> hkv4 -> hkv5
+    hash_table:h7 -> hkv6 -> hkv7 -> hkv8 -> hkv9
+}

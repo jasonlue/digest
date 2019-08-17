@@ -1,0 +1,152 @@
+digraph table{
+    rankdir=LR
+    node[shape=plaintext]
+
+    table[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i0">0</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k0">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i1">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k1">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k2">21</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i3">3</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k3">12</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i4">4</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue" PORT="k4">22</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i5">5</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">3</TD>
+                <TD BGCOLOR="lightblue" PORT="k5">32</TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="grey" PORT="i6">6</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k6">-</TD> 
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightyellow" PORT="i7">7</TD>
+                <TD BGCOLOR="lightyellow">7</TD>
+                <TD BGCOLOR="lightyellow">0</TD>
+                <TD BGCOLOR="lightyellow" PORT="k7">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i8">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k8">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i9">9</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue" PORT="k9">37</TD>
+            </TR>           
+        </TABLE>
+    >]
+     table2[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i0">0</TD>
+                <TD BGCOLOR="yellow">7</TD>
+                <TD BGCOLOR="yellow">3</TD>
+                <TD BGCOLOR="yellow" PORT="k0">47</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i1">1</TD>
+                <TD BGCOLOR="yellow">0</TD>
+                <TD BGCOLOR="yellow">1</TD>
+                <TD BGCOLOR="yellow" PORT="k1">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k2">21</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i3">3</TD>
+                <TD BGCOLOR="yellow">1</TD>
+                <TD BGCOLOR="yellow">2</TD>
+                <TD BGCOLOR="yellow" PORT="k3">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i4">4</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue" PORT="k4">22</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i5">5</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue">3</TD>
+                <TD BGCOLOR="lightblue" PORT="k5">32</TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i6">6</TD>
+                <TD BGCOLOR="yellow">2</TD>
+                <TD BGCOLOR="yellow">4</TD>
+                <TD BGCOLOR="yellow" PORT="k6">12</TD> 
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightyellow" PORT="i7">7</TD>
+                <TD BGCOLOR="lightyellow">7</TD>
+                <TD BGCOLOR="lightyellow">0</TD>
+                <TD BGCOLOR="lightyellow" PORT="k7">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i8">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k8">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i9">9</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue" PORT="k9">37</TD>
+            </TR>           
+        </TABLE>
+    >]
+
+ "start position" -> table:i7
+ table:k0->table2:i1
+ table:k1->table2:i3
+ table:k3->table2:i6
+ "47"->table2:i0
+ table2:k0->"relocate 10" -> table2:k1 -> "relocate 11" -> table2:k3 -> "relocate 12" -> table2:k6
+}

@@ -1,0 +1,8 @@
+digraph table{
+    node[shape=record]
+    entry[xlabel="item" label="<k>key|<v>value"]
+    entry:k -> hash 
+    hash -> bucket -> hash_table:k
+    hash_table[xlabel="table" label="{<f0>|<f1>|<f2>|<f3>...|{<k>key|<v>value}|<f11>|<f12>}"]
+    table_size -> bucket
+}
