@@ -1,4 +1,4 @@
-@startuml
+@startuml file_analysis
 
 class RuleMatcher #YellowGreen{
     RE_level

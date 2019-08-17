@@ -1,0 +1,18 @@
+@startuml signatures
+Global -> RuleMatcher++: ReadFiles(rules)
+    RuleMatcher -> Global++: rules_parse(yyparse())
+        Global -> Global++: yyparse()
+            Global -> RuleMatcher++: AddRule(rule)
+            return
+        return
+    return
+    RuleMatcher -> RuleMatcher++: BuildRulesTree()
+    return
+    RuleMatcher -> RuleMatcher++: BuildRegEx()
+    return 
+
+
+
+
+
+@enduml
