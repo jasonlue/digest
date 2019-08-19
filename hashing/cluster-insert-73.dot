@@ -195,5 +195,5 @@ digraph table{
  "73"->table2:i8
 
  table:k8->table2:i12
- table2:k8->"relocate 28" -> table2:k12
+ table2:k8->"relocate 27" -> table2:k12
 }

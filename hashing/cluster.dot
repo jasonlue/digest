@@ -97,5 +97,9 @@ digraph table{
         </TABLE>
     >]
 
+    "bucket of cluster 2" -> table:i2
+    "head of cluster 2" -> table:i3
+    "tail of cluster 2" -> table:i5
+    "end of cluster 2" -> table:i6
     "overflow start" -> table:i10
 }

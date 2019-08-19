@@ -70,12 +70,6 @@ digraph table{
                 <TD BGCOLOR="grey">-</TD>
                 <TD BGCOLOR="grey" PORT="k9">-</TD>
             </TR>           
-            <TR>
-                <TD BGCOLOR="grey" PORT="i9">9</TD>
-                <TD BGCOLOR="grey">-</TD>
-                <TD BGCOLOR="grey">-</TD>
-                <TD BGCOLOR="grey" PORT="k9">-</TD>
-            </TR>           
         </TABLE>
     >]
      table2[label=<
