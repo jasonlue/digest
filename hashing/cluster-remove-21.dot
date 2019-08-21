@@ -191,7 +191,8 @@ digraph table{
         </TABLE>
     >]
 
- "remove 21" -> table:i2
+ "remove position" -> table:i2
+ table2:k2->"remove 21"
  table2:k5->"relocate 32"->table2:k2
  table:k5->table2:i2
 }
