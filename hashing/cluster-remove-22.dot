@@ -147,10 +147,10 @@ digraph table{
                 <TD BGCOLOR="grey" PORT="k6">-</TD> 
             </TR>           
             <TR>
-                <TD BGCOLOR="lightyellow" PORT="i7">7</TD>
-                <TD BGCOLOR="lightyellow">7</TD>
-                <TD BGCOLOR="lightyellow">0</TD>
-                <TD BGCOLOR="lightyellow" PORT="k7">17</TD>
+                <TD BGCOLOR="lightblue" PORT="i7">7</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k7">17</TD>
             </TR>           
             <TR>
                 <TD BGCOLOR="lightblue" PORT="i8">8</TD>

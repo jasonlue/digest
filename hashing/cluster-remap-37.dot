@@ -1,0 +1,338 @@
+digraph table{
+    rankdir=LR
+    node[shape=plaintext]
+
+     table[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey" PORT="i">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey" PORT="k">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i0">0</TD>
+                <TD BGCOLOR="yellowgreen">0</TD>
+                <TD BGCOLOR="yellowgreen">0</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k0">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i1">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k1">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k2">21</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i3">3</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">1</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k3">12</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i4">4</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k4">22</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i5">5</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">3</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k5">32</TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="grey" PORT="i6">6</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k6">-</TD> 
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i7">7</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k7">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i8">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k8">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i9">9</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue" PORT="k9">37</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i10">10</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">3</TD>
+                <TD BGCOLOR="lightblue" PORT="k10">47</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i11">11</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k11">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i12">12</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k12">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i13">13</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k13">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i14">14</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k14">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i15">15</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k15">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i16">16</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k16">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i17">17</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k17">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i18">18</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k18">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i19">19</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k19">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i20">20</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k20">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i21">21</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k21">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i22">22</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k22">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i23">23</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k23">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i24">24</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k24">-</TD>
+            </TR>           
+        </TABLE>
+    >]
+
+     table2[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey" PORT="i">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey" PORT="k">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i0">0</TD>
+                <TD BGCOLOR="yellowgreen">0</TD>
+                <TD BGCOLOR="yellowgreen">0</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k0">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i1">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k1">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2">2</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k2">21</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i3">3</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">1</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k3">12</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i4">4</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k4">22</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i5">5</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">3</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k5">32</TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="grey" PORT="i6">6</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k6">-</TD> 
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i7">7</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k7">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i8">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k8">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i9">9</TD>yellow
+                <TD BGCOLOR="yellow">7</TD>
+                <TD BGCOLOR="yellow">2</TD>
+                <TD BGCOLOR="yellow" PORT="k9">47</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i10">10</TD>
+                <TD BGCOLOR="yellow">-</TD>
+                <TD BGCOLOR="yellow">-</TD>
+                <TD BGCOLOR="yellow" PORT="k10">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i11">11</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k11">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i12">12</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k12">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i13">13</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k13">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i14">14</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k14">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i15">15</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k15">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i16">16</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k16">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i17">17</TD>
+                <TD BGCOLOR="yellow">17</TD>
+                <TD BGCOLOR="yellow">0</TD>
+                <TD BGCOLOR="yellow" PORT="k17">37</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i18">18</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k18">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="grey" PORT="i19">19</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey">-</TD>
+                <TD BGCOLOR="grey" PORT="k19">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i20">20</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k20">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i21">21</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k21">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i22">22</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k22">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i23">23</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k23">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i24">24</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k24">-</TD>
+            </TR>           
+        </TABLE>
+    >]
+
+    table:k-> "remap 37"->table2:i
+    "table_size=20 "->table:i
+    "overflow start " -> table:i20
+    "overflow start" -> table2:i20
+
+    table:k9->table2:i17
+    table2:k9->"relocate 37"->table2:k17
+    table:k10->table2:i9
+    table2:k10->"relocate 47"->table2:k9
+    "remap end" -> table:i13
+    "new remap end" -> table2:i8
+}

@@ -1,0 +1,10 @@
+digraph rehash{
+    node[shape=record]
+    entry[xlabel="item" label="<k>key|<v>value"]
+    step[label="step|0|1|2|..."]
+    entry:k -> hash 
+    step->hash
+    hash -> bucket -> hash_table:k
+    hash_table[xlabel="table" label="{<f0>|<f1>|<f2>|<f3>...|{<k>key|<v>value}|<f11>|<f12>}"]
+    table_size -> bucket
+}
