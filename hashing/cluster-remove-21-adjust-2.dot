@@ -1,0 +1,109 @@
+digraph table{
+    rankdir=LR
+    node[shape=plaintext]
+
+     table[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey">index</TD>
+                <TD BGCOLOR="grey">bucket</TD>
+                <TD BGCOLOR="grey">distance</TD>
+                <TD BGCOLOR="grey">key</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i0">0</TD>
+                <TD BGCOLOR="yellowgreen">0</TD>
+                <TD BGCOLOR="yellowgreen">0</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k0">10</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i1">1</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue">0</TD>
+                <TD BGCOLOR="lightblue" PORT="k1">11</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="red" PORT="i2">2</TD>
+                <TD BGCOLOR="red">1</TD>
+                <TD BGCOLOR="red">1</TD>
+                <TD BGCOLOR="red" PORT="k2">41</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i3">3</TD>
+                <TD BGCOLOR="yellowgreen">1</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k3">31</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i4">4</TD>
+                <TD BGCOLOR="yellow">2</TD>
+                <TD BGCOLOR="yellow">2</TD>
+                <TD BGCOLOR="yellow" PORT="k4">32</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellowgreen" PORT="i5">5</TD>
+                <TD BGCOLOR="yellowgreen">2</TD>
+                <TD BGCOLOR="yellowgreen">3</TD>
+                <TD BGCOLOR="yellowgreen" PORT="k5">12</TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="skyblue" PORT="i6">6</TD>
+                <TD BGCOLOR="skyblue">2</TD>
+                <TD BGCOLOR="skyblue">4</TD>
+                <TD BGCOLOR="skyblue" PORT="k6">22</TD> 
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i7">7</TD>
+                <TD BGCOLOR="yellow">7</TD>
+                <TD BGCOLOR="yellow">0</TD>
+                <TD BGCOLOR="yellow" PORT="k7">37</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i8">8</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">1</TD>
+                <TD BGCOLOR="lightblue" PORT="k8">17</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i9">9</TD>
+                <TD BGCOLOR="lightblue">7</TD>
+                <TD BGCOLOR="lightblue">2</TD>
+                <TD BGCOLOR="lightblue" PORT="k9">27</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="yellow" PORT="i10">10</TD>
+                <TD BGCOLOR="yellow">-</TD>
+                <TD BGCOLOR="yellow">-</TD>
+                <TD BGCOLOR="yellow" PORT="k10">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i11">11</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k11">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i12">12</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k12">-</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i13">13</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey">-</TD>
+                <TD BGCOLOR="dimgrey" PORT="k13">-</TD>
+            </TR>           
+        </TABLE>
+    >]
+#table0->table
+p [fontcolor=red]
+q[fontcolor=red]
+ p -> table:i2
+ q -> table:i10
+ next -> table:i2
+ table:k2->" remove 21"
+ table:k4->"relocate 41"->table:k2
+ table:k7->"relocate 32"->table:k4
+ table:k10->"relocate 37"->table:k7
+}

@@ -35,10 +35,10 @@ digraph table{
                 <TD BGCOLOR="lightblue" PORT="k3">11</TD>
             </TR>           
             <TR>
-                <TD BGCOLOR="yellow" PORT="i4">4</TD>
-                <TD BGCOLOR="yellow">1</TD>
-                <TD BGCOLOR="yellow">3</TD>
-                <TD BGCOLOR="yellow" PORT="k4">61</TD>
+                <TD BGCOLOR="red" PORT="i4">4</TD>
+                <TD BGCOLOR="red">1</TD>
+                <TD BGCOLOR="red">3</TD>
+                <TD BGCOLOR="red" PORT="k4">61</TD>
             </TR>           
             <TR>
                 <TD BGCOLOR="yellowgreen" PORT="i5">5</TD>
