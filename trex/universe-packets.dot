@@ -1,0 +1,6 @@
+digraph{
+    rankdir=LR
+    node[shape=cylinder]
+    universe[label="packet universe",  width=2, height=2]
+    universe -> packets [label="        reduction               "]
+}

@@ -2,7 +2,6 @@ digraph remap{
     node[shape=record]
     entry[xlabel="item" label="<k>key|<v>value"]
     step[label="step|0|1|2|..."]
-    table_size[label="table_size|S0|S-1|S-2|..."]
     entry:k -> hash 
     step->position
     hash -> position -> hash_table:k

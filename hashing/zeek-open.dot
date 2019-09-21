@@ -1,0 +1,65 @@
+digraph table{
+    rankdir=TB
+    node[shape=plaintext]
+
+   table[label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+                <TD BGCOLOR="grey">hash(4)</TD>
+                <TD BGCOLOR="grey">distance(2)</TD>
+                <TD BGCOLOR="grey">key_size(2)</TD>
+                <TD BGCOLOR="grey">key/key_ptr(8)</TD>
+                <TD BGCOLOR="grey">value_ptr(8)</TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i0"> </TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue" PORT="k0"></TD>
+                <TD BGCOLOR="lightblue" PORT="k0"></TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i1"> </TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue" PORT="k1"></TD>
+                <TD BGCOLOR="lightblue" PORT="k1"></TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i2"> </TD>
+                <TD BGCOLOR="lightblue"> </TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue" PORT="k2"></TD>
+                <TD BGCOLOR="lightblue" PORT="k2"></TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="lightblue" PORT="i3"> </TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue"></TD>
+                <TD BGCOLOR="lightblue" PORT="k3"></TD>
+                <TD BGCOLOR="lightblue" PORT="k5"></TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i4"> </TD>
+                <TD BGCOLOR="dimgrey"></TD>
+                <TD BGCOLOR="dimgrey"></TD>
+                <TD BGCOLOR="dimgrey" PORT="k4"></TD>
+                <TD BGCOLOR="dimgrey" PORT="k5"></TD>
+            </TR>           
+            <TR>
+                <TD BGCOLOR="dimgrey" PORT="i5"> </TD>
+                <TD BGCOLOR="dimgrey"></TD>
+                <TD BGCOLOR="dimgrey"></TD>
+                <TD BGCOLOR="dimgrey" PORT="k"></TD>
+                <TD BGCOLOR="dimgrey" PORT="v"></TD>
+            </TR>              
+        </TABLE>
+    >]
+
+    key[shape="record" label="key"]
+    value[shape="record" label="value"]
+
+    table:k->key [style=dotted]
+    table:v->value
+
+}

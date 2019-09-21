@@ -1,0 +1,17 @@
+digraph{
+    rankdir=LR
+    node[shape=cylinder, style=filled, fillcolor=white]
+
+    subgraph cluster_trex{ label="T-Rex Box" color=darkorange style=filled
+        trex[shape=ellipse, fillcolor="yellow", style="filled"]
+        {"S1.pcap", "S2.pcap"} -> trex
+        "trex.yaml" {rank=same; trex; "trex.yaml"}
+    }
+    network[shape="primersite"]
+    subgraph cluster_app{ label="App Box" color=yellowgreen style=filled
+        app[shape=ellipse, fillcolor=orange, style=filled]
+    }
+    
+
+    "trex.yaml" -> trex -> network -> app
+}

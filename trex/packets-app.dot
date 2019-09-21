@@ -1,0 +1,11 @@
+digraph{
+    rankdir=LR
+    packets[label="packets", shape=cylinder, style=filled, fillcolor=white, width=0.2, height=0.2]
+
+    network[shape="primersite"]
+    subgraph cluster_app{ label="App Box" color=yellowgreen style=filled
+        app[shape=ellipse, fillcolor=orange, style=filled]
+    }
+    
+packets -> network -> app
+}

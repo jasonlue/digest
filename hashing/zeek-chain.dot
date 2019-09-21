@@ -1,0 +1,18 @@
+digraph table{
+    node[shape=record]
+    rankdir=LR
+    labeljust="r"
+
+    hash_table[xlabel="hash table" label="{
+        <i0>0|<h0>}|{<i1>1|<h1>}|{<i2>2|<h2>}|{<i3>3|<h3>}|{<i4>4|<h4>}|{<i5>5|<h5>}|{<i6>6|<h6>}}"]
+    b1[xlabel="bucket array" label="{<e0>|<e1>|<e2>|<e3>|<e4>|<e5>|<e6>|<e7>|<e8>|<e9>}"]
+    hkv1[label="{{<k>key_ptr|key_len|hash|<v>value_ptr}}"]
+    key[label="key"]
+    value[label="value"]
+    hash_table:h1 -> b1 [label="bucket_ptr"]
+    b1:e2->hkv1 [label="entry_ptr"]
+    hkv1:k->key
+    hkv1:v->value
+
+}
+
