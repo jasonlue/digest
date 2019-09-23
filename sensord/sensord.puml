@@ -1,0 +1,80 @@
+@startuml
+class chan
+class TaskHandler{
+    mainLoop()
+    loadTasks()
+    pcapMover(finishedPcaps:chan)
+    uploadFiles()
+}
+TaskHandler *--{ "taskList" SensorPcapTask
+class SensorPcapTask  {
+	TaskId             
+	RequestedStartTime 
+	RequestedEndTime   
+	RestartTime        
+	Bpf                
+--
+    Run()
+    Stop()
+    WriteTaskDir()
+}
+SensorPcapTask *-- "running" Netdump
+
+class  Netdump  {
+	filter        
+	pcapPath      
+	rotInt        
+	maxSize       
+	stop: chan
+	stopLock     
+	stopped    
+	finishedPcaps: chan
+--
+    Start()
+    Stop()
+    Stopped()
+--
+    packetReader(source, packetAgg)
+    packetWriter(packetAggr, pcap)
+    startInterface()
+}
+Netdump *--{ "caps" captureInterface
+Netdump -> Pcap
+class captureInterface {
+    iface  
+	ring:  
+	ps:     *gopacket.PacketSource
+	source: chan 
+	stop:   chan
+
+    packetsToChannel()
+}
+class Pcap  {
+	Pcap     
+	Log      
+	pcapFile 
+	logFile  
+	Writer   
+
+    Finish(finishedPcaps: chan)
+}
+
+class tcpdumpTask  {
+	pid int
+}
+
+class captureTask  {
+	uuid         
+	filter       
+	start_time   
+}
+captureTask }-- "tcpdumpTasks" tcpdumpTask 
+
+class SensorApiClient {
+    GetActiveTasks()
+    DeactivateTask()
+    UploadFiles()
+    GetSensorKey()
+}
+
+@enduml

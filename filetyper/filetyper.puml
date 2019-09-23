@@ -1,0 +1,178 @@
+@startuml filetyper
+
+class LibFileTyper{
+    GetMIME(b, fid) : string
+    GetAllMIMEs(b, fid): []string
+    --
+    NewHyperscanFileTyper(filetypers_path, indicators_path, db_path) : int
+    UpdateFileTyper(fid)
+    RequestUpdateFileTyper(fid)
+    SetUpdateInterval(fid, secs)
+    CloseFileTyper(fid)
+    --
+    registerFileTyper(ftr, filetypes_path, indicators_path, db_path, fallback) : int
+    updateFileTyper(fid)
+    deeregisterFileTyper(fid)
+    getFileTyper(fid) : FTRSEntry
+    makeFileTyper(filetypes_path, indicators_path, db_path, data_path) : HperscanFileTyper
+    requestUpdateFileTyper(fid, done:chan)
+
+}
+LibFileTyper-->"ftrs" HandleTable
+class HandleTable{
+    entries
+    m
+
+    New()
+    Add(p)
+    Replace(i,p)
+    Remove(i)
+    Lookup(i)
+}
+
+HandleTable *--{FTRSEntry
+
+class FTRSEntry{
+    mtx
+    filetypes_path
+    indicators_path
+    db_path
+    refcnt
+    update: chan 
+    fallback: bool
+
+    New()
+    Release()
+    Attach()
+}
+FTRSEntry *-- "ftr" filetyper.HyperscanFileTyper
+namespace filetyper{
+'    class filetyper{
+'        unmarshalFileTyperIndicators(m: *json.RawMessage): []matcher.IndicatorInterface
+'   }
+    class HyperscanFileTyper{
+        ftpath: string
+
+        New(filetypes_path, indicators_path, database_path) 
+        Match(b): IndicatorCollection
+        MatchIds(b) : []uint
+        GetFileTypeByIndicator(indi): *FileType
+        GetIndicatorById(i)
+        GetMIMEByFName(m)
+    }
+    HyperscanFileTyper *-- "m" matcher.Matcher
+    HyperscanFileTyper *-- "ftc" FileTypeCollection
+
+    class FileTypeCollection{
+        UUID
+        New()
+        Close()
+        LoadFromJSON(fp)
+        AmendMIMEMap(ft: *FileType)
+        AmendExtMap(ft: *FileType)
+        AddFileType(ft: *FileType)
+        BuildMIMEMap()
+        BuildExtMap()
+        --
+        GetByMIME(m: string): *FileType
+        GetByExt(ext)
+    }
+    FileTypeCollection *--{ "FileTypes"  FileType
+    FileTypeCollection *--{ "MimeMap,ExtMap"  FileType
+    class FileType{
+        PrimaryMIME: string
+        AlternateMIMES: []string
+        PrimaryExtension: string
+        AlternateExtensions: []string
+    }
+
+    matcher.Indicator <|--FileTyperIndicator 
+    class FileTyperIndicator{
+        ValidatePattern()
+    }
+}
+
+namespace matcher{
+   class Matcher{
+        database
+        scratch
+        IndicatorPath
+        DatabasePath
+        instTime
+
+        New(indicator_path, database_path, flags, umrsh)
+        Close()
+
+        DatabaseOutOfDate()
+        IndicatorsOutOfDate()
+        LoadDatabase()
+        BuildDatabase(flags)
+        WriteDatabase()
+        BuildScratch()
+        Match(b)
+        MatchIds(b): []uint
+    }
+    class MatchIdsContext{
+        Ids: []uint
+    }
+    class MatchFullContext{
+        M: *Matcher
+        Data: []byte
+        Indicators: *IndicatorCollection
+        From: []uint64
+        To: []uint64
+    }
+    Matcher *--{ "Indicators" IndicatorCollection
+    class IndicatorCollection{
+        uuid
+        NameSpace
+        IncludeFiles
+        Indicators
+        unmarshaller
+
+        New(umrsh)
+        Clone()
+        LoadFromJSON(string fp)
+        DumpToJSON():[]byte
+        Apply(fn)
+        --
+        Add(i..)
+        Get(i)
+        GetAll()
+        UnmarshalBase(fp)
+        --
+        generateUUIDS()
+        -loadFromJSON(string fp)
+        -dedupIndicators()
+        -validatePatterns()
+
+    }
+    IndicatorCollection *--{"indicators" IndicatorInterface
+    interface IndicatorInterface{
+        GetUUID()
+        SetUUID()
+        string GetPattern()
+        int GetConfidence()
+        []*Label GetOutLabels()
+        error ValidatePattern()
+    }
+    IndicatorInterface <|-- Indicator
+    class Indicator{
+        UUID
+        Pattern: string 
+        AntiPattern: string
+        Confidence: int
+    }
+    Indicator *--{"OutLabels" Label
+    Indicator *--{"InLabels" Label
+    Indicator *--{"AntiInLabels" Label
+
+    class Label{
+        Name: string
+        DataType: string
+        Data
+
+        Clone()
+    }
+}
+@enduml

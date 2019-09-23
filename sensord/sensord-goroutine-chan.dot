@@ -1,0 +1,15 @@
+digraph RoutineChan{
+    //rankdir=LR
+    node[style=filled ]
+    "captureInterface.packetToChannel1()"->source1->"packetReader1()"->packetAgg 
+    "captureInterface.packetToChannel2()"->source2->"packetReader2()"->packetAgg
+    packetAgg->packetWriter->{pcap,finishedPcaps}
+    pcap[shape=square]
+    packetAgg [shape=record label="packetAgg|||..."]
+    finishedPcaps[ shape=record label="finishedPcaps|||..."]
+
+    source1[shape=record label="source1|||..."]
+    source2[shape=record label="source2|||..."]
+    finishedPcaps[shape=record label="finishedPcaps|||..."]
+    finishedPcaps ->"taskhandler.pcapMover()" 
+}
