@@ -1,0 +1,15 @@
+digraph{
+    rankdir=LR
+    node[label="smbtorture.cap", shape=cylinder, style=filled, fillcolor=white, width=0.2, height=0.2]
+    p1
+    p2
+    p3
+    p4
+    p5
+    network[label="network" shape="primersite"]
+    subgraph cluster_app{ label="App Box" color=yellowgreen style=filled
+        app[label="zeek" shape=ellipse, fillcolor=orange, style=filled]
+    }
+    
+{p1,p2,p3,p4,p5} -> network -> app
+}

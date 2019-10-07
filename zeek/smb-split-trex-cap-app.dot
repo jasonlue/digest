@@ -1,0 +1,25 @@
+digraph{
+    rankdir=LR
+    node[ shape=cylinder, style=filled, fillcolor=white, width=0.2, height=0.2]
+    subgraph cluster_trex{ label="T-Rex Box" color=firebrick style=filled
+    p0[label="smbtorture.cap"]
+    s1[label="s1"]
+    s2[label="s2"]
+    s3[label="s3"]
+    s4[label="s3"]
+    s5[label="s3"]
+    trex[label="T-Rex", shape=ellipse, fillcolor=orange, style=filled]
+    split[label="pcap_splitter", shape=ellipse, fillcolor=orange, style=filled]
+    }
+    network[shape="primersite"]
+
+    subgraph cluster_app{ label="App Box" color=yellowgreen style=filled
+        tcpdump[label="tcpdump", shape=ellipse, fillcolor=orange, style=filled]
+        app[label="zeek", shape=ellipse, fillcolor=orange, style=filled]
+        p10K[label="10K.pcap"]
+        p100K[label="100K.pcap"]
+        p1M[label="1M.pcap"]
+    }
+    
+p0 -> split->{s1,s2,s3,s4,s5} -> trex ->network -> tcpdump->{p10K,p100K,p1M}->app
+}

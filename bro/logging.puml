@@ -1,0 +1,63 @@
+@startuml logging
+class Manager{
+    Write(stream_id, columns)
+
+    CreateStream(id,stream_info)
+    AddFilter(stream_id)
+    CreateWriter(id)
+    InstallRotationTimer(WriterInfo* winfo)
+    
+    Rotate(WriterInfo* winfo)
+    FinishedRotation(writer)
+}
+class Stream{
+    name
+}
+class Filter{
+    name
+    pred
+    path
+    path_func
+    interval
+    writer
+    postprocessoor
+}
+
+class WriterInfo{
+    interval
+    postprocessor
+    
+}
+class WriterFrontend{
+    Write()
+    Rotate()
+}
+class RotateMessage{
+    frontend
+    rotated_path
+    open
+    close
+    terminating
+}
+
+class RotationFinishedMessage{
+    new_name
+    old_name
+    open
+    close
+    success
+    terminating
+}
+class WriterBackend{
+    DoWrite()
+    DoRotate()
+    FinishedRotation()
+
+
+}
+WriterInfo -- "writer" WriterFrontend
+Stream *--{ "filters" Filter
+Stream *--{ "writers" WriterInfo
+Filter -- WriterFrontend
+
+@enduml

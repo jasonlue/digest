@@ -1,0 +1,11 @@
+@startuml logging 
+Manager -> Manager++: Write()
+    Manager -> WriterFrontend++:Write()
+    WriterFrontend -> WriterBackend: DoWrite()
+
+return
+====
+TimerManager -> Manager++: Rotate()
+    Manager --> WriterFrontend++: Rotate()
+    WriterFrontend --> WriterBackend: Rotate()
+@enduml
